@@ -6,8 +6,9 @@ var port = 5000;
 var fs = require('fs');
 
 app.use(bodyParser.json()); // support json encoded bodies
-app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+app.use(express.static(__dirname));
 
 app.get('/', function(req, res) {
     fs.readFile("index.html", "UTF-8", function(err, html) {

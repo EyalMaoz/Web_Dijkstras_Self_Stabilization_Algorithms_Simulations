@@ -26,7 +26,11 @@ app.get('/main.js', function(req, res) {
     res.writeHead(200, { "Content-Type": "text/css" });
     fileStream.pipe(res);
 });
-
+app.get('/favicon.png', function(req, res) {
+    var fileStream = fs.createReadStream("favicon.png", "UTF-8");
+    res.writeHead(200, { "Content-Type": "text/css" });
+    fileStream.pipe(res);
+});
 // start the server
 app.listen(process.env.PORT || port);
 console.log('Server started!')
